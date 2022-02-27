@@ -4,6 +4,7 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
@@ -83,6 +84,8 @@ public class PrimaryController {
             AnchorPane paneGame = new AnchorPane();
     @FXML
             AnchorPane paneInfo = new AnchorPane();
+    @FXML
+            AnchorPane paneLoad = new AnchorPane();
     
     
     //Info
@@ -92,6 +95,10 @@ public class PrimaryController {
             TextField txtfieldInfo = new TextField();
     @FXML
             Button buttonInfo = new Button();
+    
+    //Load
+    @FXML
+            ListView tableLoad = new ListView();
 
 //</editor-fold>
  
@@ -109,7 +116,7 @@ public class PrimaryController {
     @FXML
     private void _loadGame() throws IOException {
         _gombKidob(btnLoad);
-        
+        _loadTable();
     }
     @FXML
     private void _saveGame() throws IOException {
@@ -184,11 +191,17 @@ public class PrimaryController {
             txBigSG.setVisible(true);
         }else{
             txBigSG.setText("Please...");
-            txBigSG.setVisible(false);
+            txBigSG.setVisible(true);
         }
         
         
         
+    }
+
+    private void _loadTable() {
+        paneGame.setOpacity(0.1);
+        tableLoad.setOpacity(0.5);
+        paneLoad.setVisible(true);
     }
     
     
