@@ -1,6 +1,7 @@
 package com.mycompany.stargame;
 
 import java.io.IOException;
+import javafx.animation.RotateTransition;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -13,6 +14,7 @@ import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
+import javafx.util.Duration;
 
 public class PrimaryController {
     
@@ -86,6 +88,10 @@ public class PrimaryController {
             AnchorPane paneInfo = new AnchorPane();
     @FXML
             AnchorPane paneLoad = new AnchorPane();
+    @FXML
+            AnchorPane paneSave = new AnchorPane();
+    @FXML
+            AnchorPane paneHi = new AnchorPane();
     
     
     //Info
@@ -121,6 +127,7 @@ public class PrimaryController {
     @FXML
     private void _saveGame() throws IOException {
         _gombKidob(btnSave);
+        _proba();
     }
     @FXML
     private void _hiScore() throws IOException {
@@ -143,6 +150,14 @@ public class PrimaryController {
     }    
 
     private void _elsoAnim() {
+        RotateTransition rt = new RotateTransition(Duration.millis(500), txBigSG);
+        rt.setByAngle(360);
+        rt.play();
+        
+        RotateTransition rt1 = new RotateTransition(Duration.millis(500), txSmallSG);
+        rt1.setByAngle(360);
+        rt1.play();
+        
         btnRed1.setVisible(false);
         btnRed2.setVisible(false);
         btnRed3.setVisible(false);
@@ -152,10 +167,7 @@ public class PrimaryController {
         btnRed7.setVisible(false);
         btnRed8.setVisible(false);
         btnRed9.setVisible(false);
-        txBigSG.setVisible(false);
-        txBigBy.setVisible(false);
-        //txSmallSG.getTransforms().add(new Rotate(30));
-        //txSmallBy.getTransforms().add(new Rotate(30));
+
         btnBlue1.setVisible(false);
         btnBlue2.setVisible(false);
         btnBlue3.setVisible(false);
@@ -171,6 +183,9 @@ public class PrimaryController {
     private void _infoWindow(String title, String text) {
         paneGame.setOpacity(0.1);
         paneGame.setDisable(true);
+        paneLoad.setVisible(false);
+        paneSave.setVisible(false);
+        paneHi.setVisible(false);
         
         labelInfo.setText(title);
         txtfieldInfo.setPromptText(text);
@@ -182,6 +197,8 @@ public class PrimaryController {
         //Űj játék labelInfo:"Új játék"
         if ( txtfieldInfo.getText() != null && txtfieldInfo.getText().replaceAll("\\s", "") !="" ){
             GameState game = new GameState(txtfieldInfo.getText());
+            
+            
             
             
             paneInfo.setVisible(false);
@@ -199,9 +216,26 @@ public class PrimaryController {
     }
 
     private void _loadTable() {
+        paneInfo.setVisible(false);
+        paneSave.setVisible(false);
+        paneHi.setVisible(false);
+                
         paneGame.setOpacity(0.1);
         tableLoad.setOpacity(0.5);
         paneLoad.setVisible(true);
+    }
+
+    private void _proba() {
+        
+                
+
+        
+        
+        
+        
+        
+        
+        
     }
     
     

@@ -36,12 +36,12 @@
                      </font>
                   </Label>
                   <Label fx:id="txBigBy" alignment="CENTER" contentDisplay="CENTER" layoutX="266.0" layoutY="146.0" rotate="-45.0" text="By: H-FX HUB" textFill="#847979" />
-                  <Label fx:id="txtSmallSG" layoutX="384.0" layoutY="428.0" text="StarGame" textFill="#847979">
+                  <Label fx:id="txSmallSG" layoutX="384.0" layoutY="428.0" text="StarGame" textFill="#847979">
                      <font>
                         <Font name="Arial Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="txtSmallBy" layoutX="391.0" layoutY="455.0" text="By: H-FX HUB" textFill="#847979" />
+                  <Label fx:id="txSmallBy" layoutX="391.0" layoutY="455.0" text="By: H-FX HUB" textFill="#847979" />
                   <Circle fill="#1f93ff00" layoutX="238.0" layoutY="233.0" radius="200.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="39.19999999999999" AnchorPane.leftAnchor="38.4" AnchorPane.rightAnchor="38.400000000000006" AnchorPane.topAnchor="39.2" />
                   <Line endX="278.0" endY="283.0" layoutX="102.0" layoutY="98.0" startX="-6.9999847412109375" />
                   <Line endX="309.79998779296875" endY="-1.0" layoutX="127.0" layoutY="240.0" startX="-88.99998474121094" startY="-1.0" />
