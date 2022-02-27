@@ -169,7 +169,27 @@ public class PrimaryController {
         txtfieldInfo.setPromptText(text);
         paneInfo.setVisible(true);
     }
-
+    
+    @FXML
+    private void buttonInfoPushed(){
+        //Űj játék labelInfo:"Új játék"
+        if ( txtfieldInfo.getText() != null && txtfieldInfo.getText().replaceAll("\\s", "") !="" ){
+            GameState game = new GameState(txtfieldInfo.getText());
+            
+            
+            paneInfo.setVisible(false);
+            paneGame.setOpacity(1);
+            paneGame.setDisable(false);
+            txBigSG.setText(game.player);
+            txBigSG.setVisible(true);
+        }else{
+            txBigSG.setText("Please...");
+            txBigSG.setVisible(false);
+        }
+        
+        
+        
+    }
     
     
     
