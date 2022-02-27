@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.stargame.PrimaryController">
+   <children>
+      <SplitPane dividerPositions="0.5" layoutX="220.0" layoutY="160.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="640.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <items>
+          <AnchorPane fx:id="paneMenu" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="156.0">
+               <children>
+                  <ToggleButton fx:id="btnNew" mnemonicParsing="false" onAction="#_newGame" prefHeight="25.0" prefWidth="156.0" text="New Game" />
+                  <ToggleButton fx:id="btnLoad" layoutY="25.0" mnemonicParsing="false" onAction="#_loadGame" prefHeight="25.0" prefWidth="156.0" text="Load Game" />
+                  <ToggleButton fx:id="btnSave" layoutY="50.0" mnemonicParsing="false" onAction="#_saveGame" prefHeight="25.0" prefWidth="156.0" text="Save Game" />
+                  <ToggleButton fx:id="btnHi" layoutY="75.0" mnemonicParsing="false" onAction="#_hiScore" prefHeight="25.0" prefWidth="156.0" text="Hi-Score" />
+                  <ToggleButton fx:id="btnExit" layoutY="100.0" mnemonicParsing="false" onAction="#_exit" prefHeight="25.0" prefWidth="156.0" text="Exit" />
+                  <CheckBox fx:id="btnDatabase" layoutX="9.0" layoutY="458.0" mnemonicParsing="false" mouseTransparent="true" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="139.0" text="Adatbázis kapcsolat" />
+               </children>
+            </AnchorPane>
+          <AnchorPane fx:id="paneGame" minHeight="0.0" minWidth="0.0" prefHeight="480.0" prefWidth="480.0">
+               <children>
+                  <Label fx:id="txBigSG" layoutX="-46.0" layoutY="125.0" prefHeight="109.0" prefWidth="456.0" rotate="-45.0" text="StarGame" textFill="#847979">
+                     <font>
+                        <Font name="Arial Bold" size="96.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txBigBy" alignment="CENTER" contentDisplay="CENTER" layoutX="266.0" layoutY="146.0" rotate="-45.0" text="By: H-FX HUB" textFill="#847979" />
+                  <Label fx:id="txtSmallSG" layoutX="384.0" layoutY="428.0" text="StarGame" textFill="#847979">
+                     <font>
+                        <Font name="Arial Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="txtSmallBy" layoutX="391.0" layoutY="455.0" text="By: H-FX HUB" textFill="#847979" />
+                  <Circle fill="#1f93ff00" layoutX="238.0" layoutY="233.0" radius="200.0" stroke="BLACK" strokeType="INSIDE" AnchorPane.bottomAnchor="39.19999999999999" AnchorPane.leftAnchor="38.4" AnchorPane.rightAnchor="38.400000000000006" AnchorPane.topAnchor="39.2" />
+                  <Line endX="278.0" endY="283.0" layoutX="102.0" layoutY="98.0" startX="-6.9999847412109375" />
+                  <Line endX="309.79998779296875" endY="-1.0" layoutX="127.0" layoutY="240.0" startX="-88.99998474121094" startY="-1.0" />
+                  <Line endX="167.70709228515625" endY="-225.70712280273438" layoutX="213.0" layoutY="323.0" startX="-110.99998474121094" startY="52.0" />
+                  <Line endX="-34.60002136230469" endY="316.20001220703125" layoutX="273.0" layoutY="123.0" startX="-34.60002136230469" startY="-83.79999542236328" />
+                  <Circle fx:id="btnGrey5" fill="#cfcfcf" layoutX="238.0" layoutY="439.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnGrey1" fill="#cfcfcf" layoutX="238.0" layoutY="39.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnGrey9" fill="#cfcfcf" layoutX="238.0" layoutY="239.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnGrey6" fill="#cfcfcf" layoutX="95.0" layoutY="382.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnGrey4" fill="#cfcfcf" layoutX="380.0" layoutY="381.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnGrey3" fill="#cfcfcf" layoutX="438.0" layoutY="239.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnGrey7" fill="#cfcfcf" layoutX="38.0" layoutY="239.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnGrey2" fill="#cfcfcf" layoutX="380.0" layoutY="98.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnGrey8" fill="#cfcfcf" layoutX="95.0" layoutY="98.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Text fill="#9e9e9e" layoutX="227.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" textAlignment="CENTER" textOrigin="CENTER">
+                     <font>
+                        <Font name="Arial Bold" size="36.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#9e9e9e" layoutX="369.0" layoutY="97.0" rotate="45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2" textAlignment="CENTER" textOrigin="CENTER">
+                     <font>
+                        <Font name="Arial Bold" size="36.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#9e9e9e" layoutX="427.0" layoutY="239.0" rotate="90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3" textAlignment="CENTER" textOrigin="CENTER">
+                     <font>
+                        <Font name="Arial Bold" size="36.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#9e9e9e" layoutX="371.0" layoutY="381.0" rotate="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4" textAlignment="CENTER" textOrigin="CENTER">
+                     <font>
+                        <Font name="Arial Bold" size="36.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#9e9e9e" layoutX="228.0" layoutY="439.0" rotate="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5" textAlignment="CENTER" textOrigin="CENTER">
+                     <font>
+                        <Font name="Arial Bold" size="36.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#9e9e9e" layoutX="85.0" layoutY="381.0" rotate="-135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6" textAlignment="CENTER" textOrigin="CENTER">
+                     <font>
+                        <Font name="Arial Bold" size="36.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#9e9e9e" layoutX="28.0" layoutY="239.0" rotate="-90.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7" textAlignment="CENTER" textOrigin="CENTER">
+                     <font>
+                        <Font name="Arial Bold" size="36.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#9e9e9e" layoutX="85.0" layoutY="97.0" rotate="-45.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8" textAlignment="CENTER" textOrigin="CENTER">
+                     <font>
+                        <Font name="Arial Bold" size="36.0" />
+                     </font>
+                  </Text>
+                  <Text fill="#9e9e9e" layoutX="228.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9" textAlignment="CENTER" textOrigin="CENTER">
+                     <font>
+                        <Font name="Arial Bold" size="36.0" />
+                     </font>
+                  </Text>
+                  <Circle fx:id="btnBlue1" fill="#8bbeee" layoutX="237.0" layoutY="39.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnBlue9" fill="#8bbeee" layoutX="237.0" layoutY="239.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnBlue8" fill="#8bbeee" layoutX="94.0" layoutY="98.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnBlue7" fill="#8bbeee" layoutX="37.0" layoutY="239.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnBlue6" fill="#8bbeee" layoutX="94.0" layoutY="382.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnBlue5" fill="#8bbeee" layoutX="237.0" layoutY="439.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnBlue4" fill="#8bbeee" layoutX="379.0" layoutY="381.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnBlue3" fill="#8bbeee" layoutX="437.0" layoutY="239.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnBlue2" fill="#8bbeee" layoutX="379.0" layoutY="98.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnRed1" fill="#ed8c8c" layoutX="237.0" layoutY="39.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnRed9" fill="#ed8c8c" layoutX="237.0" layoutY="239.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnRed8" fill="#ed8c8c" layoutX="94.0" layoutY="98.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnRed7" fill="#ed8c8c" layoutX="37.0" layoutY="239.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnRed6" fill="#ed8c8c" layoutX="94.0" layoutY="382.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnRed5" fill="#ed8c8c" layoutX="237.0" layoutY="439.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnRed4" fill="#ed8c8c" layoutX="379.0" layoutY="381.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnRed3" fill="#ed8c8c" layoutX="437.0" layoutY="239.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnRed2" fill="#ed8c8c" layoutX="379.0" layoutY="98.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </AnchorPane>
+        </items>
+      </SplitPane>
+      <AnchorPane fx:id="paneInfo" layoutX="237.0" layoutY="239.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="140.0" AnchorPane.topAnchor="140.0">
+         <children>
+            <Button fx:id="buttonInfo" layoutX="134.0" layoutY="161.0" mnemonicParsing="false" text="Ok" />
+            <Label fx:id="labelInfo" alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="14.0" prefHeight="76.0" prefWidth="172.0" text="Label" wrapText="true" />
+            <TextField fx:id="txtfieldInfo" layoutX="14.0" layoutY="100.0" prefHeight="25.0" prefWidth="172.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
