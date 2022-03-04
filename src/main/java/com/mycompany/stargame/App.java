@@ -25,7 +25,7 @@ public class App extends Application {
         //szoveg.getChildren().add(rect1);
         
         stage.setScene(scene);
-        
+        stage.setResizable(false);
         stage.setTitle("                                            StarGame");
         stage.show();
     }

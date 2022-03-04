@@ -19,6 +19,7 @@ import javafx.util.Duration;
 public class PrimaryController {
     
     GameState game = new GameState();
+    Circle transfer;
     
 //<editor-fold defaultstate="collapsed" desc="FXML Declarations">
     //Buttons
@@ -247,40 +248,235 @@ public class PrimaryController {
     }
 
     private void _game() {
+        game.gameSpace[0] = 1;
+        txBigBy.setText("Következik: " + game.kiJon());
+            
+        //lépések ellenőrzése
+        //.....
         
-        while (game.gameSpace[0] < 9){
-            txBigBy.setText("Következik: " + game.kiJon());
-            break;
-            //lépések ellenőrzése
-            //.....
-        }
     }
 
     //jaték körök elhelyezése valamint játék
+    
+//<editor-fold defaultstate="collapsed" desc="Grey controllers">
+    //Grey controllers
+    @FXML
+    private void _btnGrey1(){
+        if (game.gameSpace[0] < 9){
+            if ( game.kiJon() == "Red" )
+                btnRed1.setVisible(true);
+            else
+                btnBlue1.setVisible(true);
+            game.gameSpace[0]++;
+            txBigBy.setText("Következik: " + game.kiJon());
+        }
+    }
+    
+    @FXML
+    private void _btnGrey2(){
+        if (game.gameSpace[0] < 9){
+            if ( game.kiJon() == "Red" )
+                btnRed2.setVisible(true);
+            else
+                btnBlue2.setVisible(true);
+            game.gameSpace[0]++;
+            txBigBy.setText("Következik: " + game.kiJon());
+        }
+    }
+    
+    @FXML
+    private void _btnGrey3(){
+        if (game.gameSpace[0] < 9){
+            if ( game.kiJon() == "Red" )
+                btnRed3.setVisible(true);
+            else
+                btnBlue3.setVisible(true);
+            game.gameSpace[0]++;
+            txBigBy.setText("Következik: " + game.kiJon());
+        }
+    }
+    
+    @FXML
+    private void _btnGrey4(){
+        if (game.gameSpace[0] < 9){
+            if ( game.kiJon() == "Red" )
+                btnRed4.setVisible(true);
+            else
+                btnBlue4.setVisible(true);
+            game.gameSpace[0]++;
+            txBigBy.setText("Következik: " + game.kiJon());
+        }
+    }
+    
+    @FXML
+    private void _btnGrey5(){
+        if (game.gameSpace[0] < 9){
+            if ( game.kiJon() == "Red" )
+                btnRed5.setVisible(true);
+            else
+                btnBlue5.setVisible(true);
+            game.gameSpace[0]++;
+            txBigBy.setText("Következik: " + game.kiJon());
+        }
+    }
+    
+    @FXML
+    private void _btnGrey6(){
+        if (game.gameSpace[0] < 9){
+            if ( game.kiJon() == "Red" )
+                btnRed6.setVisible(true);
+            else
+                btnBlue6.setVisible(true);
+            game.gameSpace[0]++;
+            txBigBy.setText("Következik: " + game.kiJon());
+        }
+    }
+    
+    @FXML
+    private void _btnGrey7(){
+        if (game.gameSpace[0] < 9){
+            if ( game.kiJon() == "Red" )
+                btnRed7.setVisible(true);
+            else
+                btnBlue7.setVisible(true);
+            game.gameSpace[0]++;
+            txBigBy.setText("Következik: " + game.kiJon());
+        }
+    }
+    
+    @FXML
+    private void _btnGrey8(){
+        if (game.gameSpace[0] < 9){
+            if ( game.kiJon() == "Red" )
+                btnRed8.setVisible(true);
+            else
+                btnBlue8.setVisible(true);
+            game.gameSpace[0]++;
+            txBigBy.setText("Következik: " + game.kiJon());
+        }
+    }
+    
+    @FXML
+    private void _btnGrey9(){
+        if (game.gameSpace[0] < 9){
+            //nem lehet ide tenni
+        }else{
+            if ( transfer!=null && transfer.getId().contains("Red") && game.gameSpace[10] != 0){
+                btnRed9.setVisible(true);
+                transfer.setVisible(false);
+                game.gameSpace[10] = 0;
+                game.gameSpace[0]++;
+            }
+        }
+    }
+//</editor-fold>
+    
+    @FXML
+    private void _btnRed1(){
+        if (game.gameSpace[0] < 9){
+            //semmi
+        }else{
+            if ( game.kiJon() == "Red" && game.gameSpace[10] == 0){
+                transfer = btnRed1;
+                game.gameSpace[10] = 1;
+            }
+        }
+    }
+    
+    @FXML
+    private void _btnRed2(){
+        if (game.gameSpace[0] < 9){
+            //semmi
+        }else{
+            if ( game.kiJon() == "Red" && game.gameSpace[10] == 0){
+                transfer = btnRed2;
+                game.gameSpace[10] = 1;
+            }
+        }
+    }
+    
+    @FXML
+    private void _btnRed3(){
+        if (game.gameSpace[0] < 9){
+            //semmi
+        }else{
+            if ( game.kiJon() == "Red" && game.gameSpace[10] == 0){
+                transfer = btnRed3;
+                game.gameSpace[10] = 1;
+            }
+        }
+    }
+    
+    @FXML
+    private void _btnRed4(){
+        if (game.gameSpace[0] < 9){
+            //semmi
+        }else{
+            if ( game.kiJon() == "Red" && game.gameSpace[10] == 0){
+                transfer = btnRed4;
+                game.gameSpace[10] = 1;
+            }
+        }
+    }
+    
     @FXML
     private void _btnRed5(){
-        System.out.println("megnyomva vörös");
         if (game.gameSpace[0] < 9){
-            if ( game.kiJon() == "Red" )
-                btnRed5.setVisible(true);
-            else
-                btnBlue5.setVisible(true);
-            game.gameSpace[0]++;
+            //semmi
+        }else{
+            if ( game.kiJon() == "Red" && game.gameSpace[10] == 0){
+                transfer = btnRed5;
+                game.gameSpace[10] = 1;
+            }
         }
     }
     
-        @FXML
-    private void _btnGrey5(){
-        System.out.println("megnyomva szürke");
+    @FXML
+    private void _btnRed6(){
         if (game.gameSpace[0] < 9){
-            if ( game.kiJon() == "Red" )
-                btnRed5.setVisible(true);
-            else
-                btnBlue5.setVisible(true);
-            game.gameSpace[0]++;
+            //semmi
+        }else{
+            if ( game.kiJon() == "Red" && game.gameSpace[10] == 0){
+                transfer = btnRed6;
+                game.gameSpace[10] = 1;
+            }
         }
     }
     
+    @FXML
+    private void _btnRed7(){
+        if (game.gameSpace[0] < 9){
+            //semmi
+        }else{
+            if ( game.kiJon() == "Red" && game.gameSpace[10] == 0){
+                transfer = btnRed7;
+                game.gameSpace[10] = 1;
+            }
+        }
+    }
     
+    @FXML
+    private void _btnRed8(){
+        if (game.gameSpace[0] < 9){
+            //semmi
+        }else{
+            if ( game.kiJon() == "Red" && game.gameSpace[10] == 0){
+                transfer = btnRed8;
+                game.gameSpace[10] = 1;
+            }
+        }
+    }
     
+    @FXML
+    private void _btnRed9(){
+        if (game.gameSpace[0] < 9){
+            //semmi
+        }else{
+            if ( game.kiJon() == "Red" && game.gameSpace[10] == 0){
+                transfer = btnRed9;
+                game.gameSpace[10] = 1;
+            }
+        }
+    }
+        
 }

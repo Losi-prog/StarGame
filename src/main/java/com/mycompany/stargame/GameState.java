@@ -3,7 +3,7 @@ package com.mycompany.stargame;
 public class GameState {
     
     String player;
-    int[] gameSpace = new int[10];
+    int[] gameSpace = new int[12];
     
     
     
