@@ -18,6 +18,8 @@ import javafx.util.Duration;
 
 public class PrimaryController {
     
+    GameState game = new GameState();
+    
 //<editor-fold defaultstate="collapsed" desc="FXML Declarations">
     //Buttons
     @FXML
@@ -115,24 +117,26 @@ public class PrimaryController {
         _elsoAnim();
         _gombKidob(btnNew);
         _infoWindow("Új játék" , "Add meg a neved");
-        
-        
-        
+        _game();
     }
+    
     @FXML
     private void _loadGame() throws IOException {
         _gombKidob(btnLoad);
         _loadTable();
     }
+    
     @FXML
     private void _saveGame() throws IOException {
         _gombKidob(btnSave);
-        _proba();
+        
     }
+    
     @FXML
     private void _hiScore() throws IOException {
         _gombKidob(btnHi);
     }
+    
     @FXML
     private void _exit() throws IOException {
         System.exit(0);
@@ -181,7 +185,7 @@ public class PrimaryController {
     }
 
     private void _infoWindow(String title, String text) {
-        paneGame.setOpacity(0.1);
+        paneGame.setOpacity(0.3);
         paneGame.setDisable(true);
         paneLoad.setVisible(false);
         paneSave.setVisible(false);
@@ -196,10 +200,7 @@ public class PrimaryController {
     private void buttonInfoPushed(){
         //Űj játék labelInfo:"Új játék"
         if ( txtfieldInfo.getText() != null && txtfieldInfo.getText().replaceAll("\\s", "") !="" ){
-            GameState game = new GameState(txtfieldInfo.getText());
-            
-            
-            
+            game.player =  txtfieldInfo.getText();
             
             paneInfo.setVisible(false);
             paneGame.setOpacity(1);
@@ -210,33 +211,23 @@ public class PrimaryController {
             txBigSG.setText("Please...");
             txBigSG.setVisible(true);
         }
-        
-        
-        
     }
 
     private void _loadTable() {
         paneInfo.setVisible(false);
         paneSave.setVisible(false);
         paneHi.setVisible(false);
-                
+        
         paneGame.setOpacity(0.1);
         tableLoad.setOpacity(0.5);
         paneLoad.setVisible(true);
     }
 
-    private void _proba() {
-        
-                
-
-        
-        
-        
-        
-        
-        
-        
+    private void _game() {
+        txBigBy.setText("Következik: " + game.kiJon());
     }
+
+
     
     
     
