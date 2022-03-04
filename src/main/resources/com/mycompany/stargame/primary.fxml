@@ -25,7 +25,7 @@
                   <ToggleButton fx:id="btnSave" layoutY="50.0" mnemonicParsing="false" onAction="#_saveGame" prefHeight="25.0" prefWidth="156.0" text="Save Game" />
                   <ToggleButton fx:id="btnHi" layoutY="75.0" mnemonicParsing="false" onAction="#_hiScore" prefHeight="25.0" prefWidth="156.0" text="Hi-Score" />
                   <ToggleButton fx:id="btnExit" layoutY="100.0" mnemonicParsing="false" onAction="#_exit" prefHeight="25.0" prefWidth="156.0" text="Exit" />
-                  <CheckBox fx:id="btnDatabase" layoutX="9.0" layoutY="458.0" mnemonicParsing="false" mouseTransparent="true" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="139.0" text="Adatbázis kapcsolat" />
+                  <CheckBox fx:id="btnDatabase" indeterminate="true" layoutX="9.0" layoutY="458.0" mnemonicParsing="false" mouseTransparent="true" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="139.0" text="Adatbázis kapcsolat" />
                </children>
             </AnchorPane>
           <AnchorPane fx:id="paneGame" minHeight="0.0" minWidth="0.0" prefHeight="480.0" prefWidth="480.0">
@@ -47,7 +47,7 @@
                   <Line endX="309.79998779296875" endY="-1.0" layoutX="127.0" layoutY="240.0" startX="-88.99998474121094" startY="-1.0" />
                   <Line endX="167.70709228515625" endY="-225.70712280273438" layoutX="213.0" layoutY="323.0" startX="-110.99998474121094" startY="52.0" />
                   <Line endX="-34.60002136230469" endY="316.20001220703125" layoutX="273.0" layoutY="123.0" startX="-34.60002136230469" startY="-83.79999542236328" />
-                  <Circle fx:id="btnGrey5" fill="#cfcfcf" layoutX="238.0" layoutY="439.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnGrey5" fill="#cfcfcf" layoutX="238.0" layoutY="439.0" onMouseClicked="#_btnGrey5" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fx:id="btnGrey1" fill="#cfcfcf" layoutX="238.0" layoutY="39.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fx:id="btnGrey9" fill="#cfcfcf" layoutX="238.0" layoutY="239.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fx:id="btnGrey6" fill="#cfcfcf" layoutX="95.0" layoutY="382.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
@@ -115,7 +115,7 @@
                   <Circle fx:id="btnRed8" fill="#ed8c8c" layoutX="94.0" layoutY="98.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fx:id="btnRed7" fill="#ed8c8c" layoutX="37.0" layoutY="239.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fx:id="btnRed6" fill="#ed8c8c" layoutX="94.0" layoutY="382.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="btnRed5" fill="#ed8c8c" layoutX="237.0" layoutY="439.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnRed5" fill="#ed8c8c" layoutX="237.0" layoutY="439.0" onMouseClicked="#_btnRed5" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fx:id="btnRed4" fill="#ed8c8c" layoutX="379.0" layoutY="381.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fx:id="btnRed3" fill="#ed8c8c" layoutX="437.0" layoutY="239.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fx:id="btnRed2" fill="#ed8c8c" layoutX="379.0" layoutY="98.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />

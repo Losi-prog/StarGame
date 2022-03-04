@@ -3,8 +3,6 @@ package com.mycompany.stargame;
 public class GameState {
     
     String player;
-    int blueOnTable = 0;
-    int redOnTable = 0;
     int[] gameSpace = new int[10];
     
     
@@ -18,9 +16,9 @@ public class GameState {
     }
     
     public String kiJon(){
-        if (gameSpace[0] == 1)
+        if (gameSpace[0]%2 == 1)
             return "Red";
-        if (gameSpace[0] == 2)
+        if (gameSpace[0]%2 == 0)
             return "Blue";
         return "";
     }

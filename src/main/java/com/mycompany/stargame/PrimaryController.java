@@ -44,6 +44,26 @@ public class PrimaryController {
             Label txSmallBy = new Label();
     
     //Circles
+    /*    @FXML
+    Circle btnGrey1 = new Circle();
+    @FXML
+    Circle btnGrey2 = new Circle();
+    @FXML
+    Circle btnGrey3 = new Circle();
+    @FXML
+    Circle btnGrey4 = new Circle();
+    @FXML
+    Circle btnGrey5 = new Circle();
+    @FXML
+    Circle btnGrey6 = new Circle();
+    @FXML
+    Circle btnGrey7 = new Circle();
+    @FXML
+    Circle btnGrey8 = new Circle();
+    @FXML
+    Circle btnGrey9 = new Circle();*/
+    
+    
     @FXML
             Circle btnRed1 = new Circle();
     @FXML
@@ -62,6 +82,8 @@ public class PrimaryController {
             Circle btnRed8 = new Circle();
     @FXML
             Circle btnRed9 = new Circle();
+    
+    
     @FXML
             Circle btnBlue1 = new Circle();
     @FXML
@@ -80,6 +102,7 @@ public class PrimaryController {
             Circle btnBlue8 = new Circle();
     @FXML
             Circle btnBlue9 = new Circle();
+    
     
     //Panes
     @FXML
@@ -224,10 +247,39 @@ public class PrimaryController {
     }
 
     private void _game() {
-        txBigBy.setText("Következik: " + game.kiJon());
+        
+        while (game.gameSpace[0] < 9){
+            txBigBy.setText("Következik: " + game.kiJon());
+            break;
+            //lépések ellenőrzése
+            //.....
+        }
     }
 
-
+    //jaték körök elhelyezése valamint játék
+    @FXML
+    private void _btnRed5(){
+        System.out.println("megnyomva vörös");
+        if (game.gameSpace[0] < 9){
+            if ( game.kiJon() == "Red" )
+                btnRed5.setVisible(true);
+            else
+                btnBlue5.setVisible(true);
+            game.gameSpace[0]++;
+        }
+    }
+    
+        @FXML
+    private void _btnGrey5(){
+        System.out.println("megnyomva szürke");
+        if (game.gameSpace[0] < 9){
+            if ( game.kiJon() == "Red" )
+                btnRed5.setVisible(true);
+            else
+                btnBlue5.setVisible(true);
+            game.gameSpace[0]++;
+        }
+    }
     
     
     
