@@ -101,15 +101,15 @@
                   <Circle fx:id="btnGrey7" fill="#cfcfcf" layoutX="38.0" layoutY="239.0" onMouseClicked="#_btnGrey7" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fx:id="btnGrey2" fill="#cfcfcf" layoutX="380.0" layoutY="98.0" onMouseClicked="#_btnGrey2" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fx:id="btnGrey8" fill="#cfcfcf" layoutX="95.0" layoutY="98.0" onMouseClicked="#_btnGrey8" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="btnBlue1" fill="#8bbeee" layoutX="237.0" layoutY="39.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="btnBlue9" fill="#8bbeee" layoutX="237.0" layoutY="239.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="btnBlue8" fill="#8bbeee" layoutX="94.0" layoutY="98.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="btnBlue7" fill="#8bbeee" layoutX="37.0" layoutY="239.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="btnBlue6" fill="#8bbeee" layoutX="94.0" layoutY="382.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="btnBlue5" fill="#8bbeee" layoutX="237.0" layoutY="439.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="btnBlue4" fill="#8bbeee" layoutX="379.0" layoutY="381.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="btnBlue3" fill="#8bbeee" layoutX="437.0" layoutY="239.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
-                  <Circle fx:id="btnBlue2" fill="#8bbeee" layoutX="379.0" layoutY="98.0" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnBlue1" fill="#8bbeee" layoutX="237.0" layoutY="39.0" onMouseClicked="#_btnBlue1" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnBlue9" fill="#8bbeee" layoutX="237.0" layoutY="239.0" onMouseClicked="#_btnBlue9" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnBlue8" fill="#8bbeee" layoutX="94.0" layoutY="98.0" onMouseClicked="#_btnBlue8" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnBlue7" fill="#8bbeee" layoutX="37.0" layoutY="239.0" onMouseClicked="#_btnBlue7" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnBlue6" fill="#8bbeee" layoutX="94.0" layoutY="382.0" onMouseClicked="#_btnBlue6" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnBlue5" fill="#8bbeee" layoutX="237.0" layoutY="439.0" onMouseClicked="#_btnBlue5" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnBlue4" fill="#8bbeee" layoutX="379.0" layoutY="381.0" onMouseClicked="#_btnBlue4" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnBlue3" fill="#8bbeee" layoutX="437.0" layoutY="239.0" onMouseClicked="#_btnBlue3" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="btnBlue2" fill="#8bbeee" layoutX="379.0" layoutY="98.0" onMouseClicked="#_btnBlue2" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fx:id="btnRed1" fill="#ed8c8c" layoutX="237.0" layoutY="39.0" onMouseClicked="#_btnRed1" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fx:id="btnRed9" fill="#ed8c8c" layoutX="237.0" layoutY="239.0" onMouseClicked="#_btnRed9" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
                   <Circle fx:id="btnRed8" fill="#ed8c8c" layoutX="94.0" layoutY="98.0" onMouseClicked="#_btnRed8" radius="25.0" stroke="BLACK" strokeType="INSIDE" />
