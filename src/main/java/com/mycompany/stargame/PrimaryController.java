@@ -677,6 +677,31 @@ public class PrimaryController {
         game.gameSpace[0]++;
         drawing();
         txBigBy.setText("Következik: " + game.kiJon());
+        if ( game.isWin() != 0 ){
+            game.gameSpace[0]--;
+            txBigSG.setText("!!" + game.kiJon() + "!!");
+            txBigBy.setText("Lépések: " + (game.gameSpace[0]-8)   );
+            winAnim();
+        }
+        
+    }
+
+    private void winAnim() {
+        int looser;
+        if ( game.isWin() == 1 )
+            looser = 2;
+        else
+            looser = 1;
+        for ( int i = 1 ; i < 9 ; i++ ){
+            if ( game.gameSpace[i] == looser && looser == 1)
+                redTomb[i].setOpacity(0.5);
+            if ( game.gameSpace[i] == looser && looser == 2)
+                blueTomb[i].setOpacity(0.3);
+                
+        }
+        
+        
+        
     }
     
     

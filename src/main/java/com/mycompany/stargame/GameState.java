@@ -66,7 +66,47 @@ public class GameState {
         return true;
     }
     
-    
+    public int isWin(){
+        int red = 0;
+        int blue = 0;
+        if ( this.gameSpace[0] > 8 ){
+            for ( int i = 1 ; i <= 9 ; i++ ){
+                if ( nearEmpty(i) && this.gameSpace[i] == 1)
+                    red++;
+                if ( nearEmpty(i) && this.gameSpace[i] == 2)
+                    blue++;
+            }
+            if ( red == 0 )
+                return 2;
+            if ( blue == 0 )
+                return 1;
+        }
+        return 0;
+    }
+
+    private boolean nearEmpty(int actual) {
+        if ( actual < 9 ){
+            int bigger;
+            int smaller;
+            
+            if ( actual == 8 )
+                bigger = 1;
+            else
+                bigger = actual + 1;
+            
+            if ( actual == 1 )
+                smaller = 8;
+            else
+                smaller = actual -1;
+            
+            if ( this.gameSpace[bigger] == 0 || this.gameSpace[smaller] == 0 || this.gameSpace[9] ==0 )
+                return true;
+            else
+                return false;
+        }
+        //game.gsameSpace[9] eseten
+        return true;
+    }
     
     
 }
