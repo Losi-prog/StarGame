@@ -19,8 +19,6 @@ import javafx.util.Duration;
 public class PrimaryController {
     
     GameState game = new GameState();
-    Circle transfer;
-    //Circle[] grey = new Circle[10];
     Circle[] redTomb = new Circle[10];
     Circle[] blueTomb = new Circle[10];
     
@@ -48,29 +46,9 @@ public class PrimaryController {
             Label txSmallBy = new Label();
     
     //Circles
-    /*    @FXML
-    Circle btnGrey1 = new Circle();
-    @FXML
-    Circle btnGrey2 = new Circle();
-    @FXML
-    Circle btnGrey3 = new Circle();
-    @FXML
-    Circle btnGrey4 = new Circle();
-    @FXML
-    Circle btnGrey5 = new Circle();
-    @FXML
-    Circle btnGrey6 = new Circle();
-    @FXML
-    Circle btnGrey7 = new Circle();
-    @FXML
-    Circle btnGrey8 = new Circle();
-    @FXML
-    Circle btnGrey9 = new Circle();*/
-    
     
     @FXML
             Circle btnRed1 = new Circle();
-    
     @FXML
             Circle btnRed2 = new Circle();
     @FXML
@@ -143,6 +121,7 @@ public class PrimaryController {
     
     @FXML
     private void _newGame() throws IOException {
+        game = new GameState();
         _elsoAnim();
         _gombKidob(btnNew);
         _infoWindow("Új játék" , "Add meg a neved");
@@ -275,15 +254,16 @@ public class PrimaryController {
                 game.gameSpace[1] = 1;
             else
                 game.gameSpace[1] = 2;
-        }else if ( game.gameSpace[10] == 1){
-            game.gameSpace[1] = 1;
-        }else if ( game.gameSpace[10] == 2){
-            game.gameSpace[1] = 2;
+            nextRound();
         }
-        game.gameSpace[10] = 0;
-        game.gameSpace[0]++;
-        drawing();
-        txBigBy.setText("Következik: " + game.kiJon());
+        
+        game.gameSpace[12] = 1;
+        if ( game.isNeighbour() ){
+            makeStep();
+            nextRound();
+        }
+        
+        
     }
     
     @FXML
@@ -293,15 +273,14 @@ public class PrimaryController {
                 game.gameSpace[2] = 1;
             else
                 game.gameSpace[2] = 2;
-        }else if ( game.gameSpace[10] == 1){
-            game.gameSpace[2] = 1;
-        }else if ( game.gameSpace[10] == 2){
-            game.gameSpace[2] = 2;
+            nextRound();
         }
-        game.gameSpace[10] = 0;
-        game.gameSpace[0]++;
-        drawing();
-        txBigBy.setText("Következik: " + game.kiJon());
+        
+        game.gameSpace[12] = 2;
+        if ( game.isNeighbour() ){
+            makeStep();
+            nextRound();
+        }
     }
     
     @FXML
@@ -311,15 +290,14 @@ public class PrimaryController {
                 game.gameSpace[3] = 1;
             else
                 game.gameSpace[3] = 2;
-        }else if ( game.gameSpace[10] == 1){
-            game.gameSpace[3] = 1;
-        }else if ( game.gameSpace[10] == 2){
-            game.gameSpace[3] = 2;
+            nextRound();
         }
-        game.gameSpace[10] = 0;
-        game.gameSpace[0]++;
-        drawing();
-        txBigBy.setText("Következik: " + game.kiJon());
+        
+        game.gameSpace[12] = 3;
+        if ( game.isNeighbour() ){
+            makeStep();
+            nextRound();
+        }
     }
     
     @FXML
@@ -329,15 +307,14 @@ public class PrimaryController {
                 game.gameSpace[4] = 1;
             else
                 game.gameSpace[4] = 2;
-        }else if ( game.gameSpace[10] == 1){
-            game.gameSpace[4] = 1;
-        }else if ( game.gameSpace[10] == 2){
-            game.gameSpace[4] = 2;
+            nextRound();
         }
-        game.gameSpace[10] = 0;
-        game.gameSpace[0]++;
-        drawing();
-        txBigBy.setText("Következik: " + game.kiJon());
+        
+        game.gameSpace[12] = 4;
+        if ( game.isNeighbour() ){
+            makeStep();
+            nextRound();
+        }
     }
     
     @FXML
@@ -347,15 +324,14 @@ public class PrimaryController {
                 game.gameSpace[5] = 1;
             else
                 game.gameSpace[5] = 2;
-        }else if ( game.gameSpace[10] == 1){
-            game.gameSpace[5] = 1;
-        }else if ( game.gameSpace[10] == 2){
-            game.gameSpace[5] = 2;
+            nextRound();
         }
-        game.gameSpace[10] = 0;
-        game.gameSpace[0]++;
-        drawing();
-        txBigBy.setText("Következik: " + game.kiJon());
+        
+        game.gameSpace[12] = 5;
+        if ( game.isNeighbour() ){
+            makeStep();
+            nextRound();
+        }
     }
     
     @FXML
@@ -365,15 +341,14 @@ public class PrimaryController {
                 game.gameSpace[6] = 1;
             else
                 game.gameSpace[6] = 2;
-        }else if ( game.gameSpace[10] == 1){
-            game.gameSpace[6] = 1;
-        }else if ( game.gameSpace[10] == 2){
-            game.gameSpace[6] = 2;
+            nextRound();
         }
-        game.gameSpace[10] = 0;
-        game.gameSpace[0]++;
-        drawing();
-        txBigBy.setText("Következik: " + game.kiJon());
+        
+        game.gameSpace[12] = 6;
+        if ( game.isNeighbour() ){
+            makeStep();
+            nextRound();
+        }
     }
     
     @FXML
@@ -383,15 +358,14 @@ public class PrimaryController {
                 game.gameSpace[7] = 1;
             else
                 game.gameSpace[7] = 2;
-        }else if ( game.gameSpace[10] == 1){
-            game.gameSpace[7] = 1;
-        }else if ( game.gameSpace[10] == 2){
-            game.gameSpace[7] = 2;
+            nextRound();
         }
-        game.gameSpace[10] = 0;
-        game.gameSpace[0]++;
-        drawing();
-        txBigBy.setText("Következik: " + game.kiJon());
+        
+        game.gameSpace[12] = 7;
+        if ( game.isNeighbour() ){
+            makeStep();
+            nextRound();
+        }
     }
     
     @FXML
@@ -401,32 +375,27 @@ public class PrimaryController {
                 game.gameSpace[8] = 1;
             else
                 game.gameSpace[8] = 2;
-        }else if ( game.gameSpace[10] == 1){
-            game.gameSpace[8] = 1;
-        }else if ( game.gameSpace[10] == 2){
-            game.gameSpace[8] = 2;
+            nextRound();
         }
-        game.gameSpace[10] = 0;
-        game.gameSpace[0]++;
-        drawing();
-        txBigBy.setText("Következik: " + game.kiJon());
+        
+        game.gameSpace[12] = 8;
+        if ( game.isNeighbour() ){
+            makeStep();
+            nextRound();
+        }
     }
     
     @FXML
     private void _btnGrey9(){
         if (game.gameSpace[0] < 9){
             //nem lehet ide tenni
-        }else if ( game.gameSpace[10] == 1){
-            game.gameSpace[9] = 1;
-            game.gameSpace[10] = 0;
-            game.gameSpace[0]++;
-        }else if ( game.gameSpace[10] == 2){
-            game.gameSpace[9] = 2;
-            game.gameSpace[10] = 0;
-            game.gameSpace[0]++;
         }
-        drawing();
-        txBigBy.setText("Következik: " + game.kiJon());
+        
+        game.gameSpace[12] = 9;
+        if ( game.isNeighbour() ){
+            makeStep();
+            nextRound();
+        }
     }
 //</editor-fold>
     
@@ -438,9 +407,9 @@ public class PrimaryController {
         if (game.gameSpace[0] < 9){
             //semmi
         }else{
-            if ( game.kiJon() == "Red" && game.gameSpace[10] == 0){
-                game.gameSpace[1] = 0;
+            if ( game.kiJon() == "Red" && game.canStep(1) ){
                 game.gameSpace[10] = 1;
+                game.gameSpace[11] = 1;
             }
         }
     }
@@ -450,9 +419,9 @@ public class PrimaryController {
         if (game.gameSpace[0] < 9){
             //semmi
         }else{
-            if ( game.kiJon() == "Red" && game.gameSpace[10] == 0){
-                game.gameSpace[2] = 0;
+            if ( game.kiJon() == "Red" && game.canStep(2) ){
                 game.gameSpace[10] = 1;
+                game.gameSpace[11] = 2;
             }
         }
     }
@@ -462,9 +431,9 @@ public class PrimaryController {
         if (game.gameSpace[0] < 9){
             //semmi
         }else{
-            if ( game.kiJon() == "Red" && game.gameSpace[10] == 0){
-                game.gameSpace[3] = 0;
+            if ( game.kiJon() == "Red" && game.canStep(3) ){
                 game.gameSpace[10] = 1;
+                game.gameSpace[11] = 3;
             }
         }
     }
@@ -474,9 +443,9 @@ public class PrimaryController {
         if (game.gameSpace[0] < 9){
             //semmi
         }else{
-            if ( game.kiJon() == "Red" && game.gameSpace[10] == 0){
-                game.gameSpace[4] = 0;
+            if ( game.kiJon() == "Red" && game.canStep(4) ){
                 game.gameSpace[10] = 1;
+                game.gameSpace[11] = 4;
             }
         }
     }
@@ -486,9 +455,9 @@ public class PrimaryController {
         if (game.gameSpace[0] < 9){
             //semmi
         }else{
-            if ( game.kiJon() == "Red" && game.gameSpace[10] == 0){
-                game.gameSpace[5] = 0;
+            if ( game.kiJon() == "Red" && game.canStep(5) ){
                 game.gameSpace[10] = 1;
+                game.gameSpace[11] = 5;
             }
         }
     }
@@ -498,9 +467,9 @@ public class PrimaryController {
         if (game.gameSpace[0] < 9){
             //semmi
         }else{
-            if ( game.kiJon() == "Red" && game.gameSpace[10] == 0){
-                game.gameSpace[6] = 0;
+            if ( game.kiJon() == "Red" && game.canStep(6) ){
                 game.gameSpace[10] = 1;
+                game.gameSpace[11] = 6;
             }
         }
     }
@@ -510,9 +479,9 @@ public class PrimaryController {
         if (game.gameSpace[0] < 9){
             //semmi
         }else{
-            if ( game.kiJon() == "Red" && game.gameSpace[10] == 0){
-                game.gameSpace[7] = 0;
+            if ( game.kiJon() == "Red" && game.canStep(7) ){
                 game.gameSpace[10] = 1;
+                game.gameSpace[11] = 7;
             }
         }
     }
@@ -522,9 +491,9 @@ public class PrimaryController {
         if (game.gameSpace[0] < 9){
             //semmi
         }else{
-            if ( game.kiJon() == "Red" && game.gameSpace[10] == 0){
-                game.gameSpace[8] = 0;
+            if ( game.kiJon() == "Red" && game.canStep(8) ){
                 game.gameSpace[10] = 1;
+                game.gameSpace[11] = 8;
             }
         }
     }
@@ -534,9 +503,9 @@ public class PrimaryController {
         if (game.gameSpace[0] < 9){
             //semmi
         }else{
-            if ( game.kiJon() == "Red" && game.gameSpace[10] == 0){
-                game.gameSpace[9] = 0;
+            if ( game.kiJon() == "Red" && game.canStep(9) ){
                 game.gameSpace[10] = 1;
+                game.gameSpace[11] = 9;
             }
         }
     }
@@ -550,9 +519,9 @@ public class PrimaryController {
         if (game.gameSpace[0] < 9){
             //semmi
         }else{
-            if ( game.kiJon() == "Blue" && game.gameSpace[10] == 0){
-                game.gameSpace[1] = 0;
+            if ( game.kiJon() == "Blue" && game.canStep(1) ){
                 game.gameSpace[10] = 2;
+                game.gameSpace[11] = 1;
             }
         }
     }
@@ -562,9 +531,9 @@ public class PrimaryController {
         if (game.gameSpace[0] < 9){
             //semmi
         }else{
-            if ( game.kiJon() == "Blue" && game.gameSpace[10] == 0){
-                game.gameSpace[2] = 0;
+            if ( game.kiJon() == "Blue" && game.canStep(2) ){
                 game.gameSpace[10] = 2;
+                game.gameSpace[11] = 2;
             }
         }
     }
@@ -574,9 +543,9 @@ public class PrimaryController {
         if (game.gameSpace[0] < 9){
             //semmi
         }else{
-            if ( game.kiJon() == "Blue" && game.gameSpace[10] == 0){
-                game.gameSpace[3] = 0;
+            if ( game.kiJon() == "Blue" && game.canStep(3) ){
                 game.gameSpace[10] = 2;
+                game.gameSpace[11] = 3;
             }
         }
     }
@@ -586,9 +555,9 @@ public class PrimaryController {
         if (game.gameSpace[0] < 9){
             //semmi
         }else{
-            if ( game.kiJon() == "Blue" && game.gameSpace[10] == 0){
-                game.gameSpace[4] = 0;
+            if ( game.kiJon() == "Blue" && game.canStep(4) ){
                 game.gameSpace[10] = 2;
+                game.gameSpace[11] = 4;
             }
         }
     }
@@ -598,9 +567,9 @@ public class PrimaryController {
         if (game.gameSpace[0] < 9){
             //semmi
         }else{
-            if ( game.kiJon() == "Blue" && game.gameSpace[10] == 0){
-                game.gameSpace[5] = 0;
+            if ( game.kiJon() == "Blue" && game.canStep(5) ){
                 game.gameSpace[10] = 2;
+                game.gameSpace[11] = 5;
             }
         }
     }
@@ -610,9 +579,9 @@ public class PrimaryController {
         if (game.gameSpace[0] < 9){
             //semmi
         }else{
-            if ( game.kiJon() == "Blue" && game.gameSpace[10] == 0){
-                game.gameSpace[6] = 0;
+            if ( game.kiJon() == "Blue" && game.canStep(6) ){
                 game.gameSpace[10] = 2;
+                game.gameSpace[11] = 6;
             }
         }
     }
@@ -622,9 +591,9 @@ public class PrimaryController {
         if (game.gameSpace[0] < 9){
             //semmi
         }else{
-            if ( game.kiJon() == "Blue" && game.gameSpace[10] == 0){
-                game.gameSpace[7] = 0;
+            if ( game.kiJon() == "Blue" && game.canStep(7) ){
                 game.gameSpace[10] = 2;
+                game.gameSpace[11] = 7;
             }
         }
     }
@@ -634,9 +603,9 @@ public class PrimaryController {
         if (game.gameSpace[0] < 9){
             //semmi
         }else{
-            if ( game.kiJon() == "Blue" && game.gameSpace[10] == 0){
-                game.gameSpace[8] = 0;
+            if ( game.kiJon() == "Blue" && game.canStep(8) ){
                 game.gameSpace[10] = 2;
+                game.gameSpace[11] = 8;
             }
         }
     }
@@ -646,9 +615,9 @@ public class PrimaryController {
         if (game.gameSpace[0] < 9){
             //semmi
         }else{
-            if ( game.kiJon() == "Blue" && game.gameSpace[10] == 0){
-                game.gameSpace[9] = 0;
+            if ( game.kiJon() == "Blue" && game.canStep(9) ){
                 game.gameSpace[10] = 2;
+                game.gameSpace[11] = 9;
             }
         }
     }
@@ -696,6 +665,18 @@ public class PrimaryController {
                 blueTomb[i].setVisible(true);
             }
         }
+    }
+
+    private void makeStep() {
+        game.gameSpace[game.gameSpace[11]] = 0;
+        game.gameSpace[game.gameSpace[12]] = game.gameSpace[10];
+    }
+
+    private void nextRound() {
+        game.gameSpace[10] = 0;
+        game.gameSpace[0]++;
+        drawing();
+        txBigBy.setText("Következik: " + game.kiJon());
     }
     
     
