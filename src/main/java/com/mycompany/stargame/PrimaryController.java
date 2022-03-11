@@ -697,13 +697,8 @@ public class PrimaryController {
                 redTomb[i].setOpacity(0.5);
             if ( game.gameSpace[i] == looser && looser == 2)
                 blueTomb[i].setOpacity(0.3);
-                
         }
-        
-        
-        
+        if ( looser == 2 )
+            System.out.println("HI-SCORE mentése");
     }
-    
-    
-    
 }

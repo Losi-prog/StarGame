@@ -5,8 +5,14 @@ public class GameState {
     String player;
     int[] gameSpace = new int[13];
     
-     public GameState() {
+    public GameState() {
         gameSpace[0] = 1;
+    }
+    
+    public GameState(String player , int[] tomb){
+        this.player = player;
+        for ( int i = 0 ; i < tomb.length ; i++ )
+            this.gameSpace[i] = tomb[i];
     }
     
     public String kiJon(){
