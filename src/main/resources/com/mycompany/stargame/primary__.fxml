@@ -4,6 +4,7 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
@@ -129,7 +130,13 @@
                   <Font name="Arial Bold" size="36.0" />
                </font>
             </Label>
-            <TableView fx:id="tableLoad" layoutY="62.0" prefHeight="338.0" prefWidth="478.0" />
+            <TableView fx:id="tableLoad" layoutY="62.0" prefHeight="338.0" prefWidth="478.0">
+              <columns>
+                <TableColumn fx:id="tableName" editable="false" prefWidth="150.0" text="Név" />
+                <TableColumn fx:id="tableDate" editable="false" prefWidth="150.0" text="Dátum" />
+                  <TableColumn fx:id="tableTime" editable="false" prefWidth="75.0" text="Idő" />
+              </columns>
+            </TableView>
             <Button layoutX="356.0" layoutY="427.0" mnemonicParsing="false" text="Load Game" />
          </children>
       </AnchorPane>

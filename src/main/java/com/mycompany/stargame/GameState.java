@@ -1,16 +1,39 @@
 package com.mycompany.stargame;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+
 public class GameState {
     
     String player;
+    SimpleStringProperty ssplayer;
+    SimpleStringProperty date;
+    SimpleStringProperty time;
+
+    public String getSsplayer() {
+        this.ssplayer = new SimpleStringProperty(player);
+        return ssplayer.get();
+    }
     int[] gameSpace = new int[13];
     
     public GameState() {
+        this.date = new SimpleStringProperty("" + LocalDate.now());
+        this.time = new SimpleStringProperty(LocalTime.now().format(DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM)));
         gameSpace[0] = 1;
     }
     
     public GameState(String player , int[] tomb){
+        
+        this.date = new SimpleStringProperty("" + LocalDate.now());
+        this.time = new SimpleStringProperty(LocalTime.now().format(DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM)));
+        
+        
         this.player = player;
+        this.ssplayer = new SimpleStringProperty(player);
         for ( int i = 0 ; i < tomb.length ; i++ )
             this.gameSpace[i] = tomb[i];
     }

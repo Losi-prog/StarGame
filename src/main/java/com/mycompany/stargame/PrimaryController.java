@@ -1,22 +1,45 @@
 package com.mycompany.stargame;
 
 import java.io.IOException;
+import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.FormatStyle;
+import java.util.ResourceBundle;
 import javafx.animation.RotateTransition;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
-import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
-public class PrimaryController {
+public class PrimaryController implements Initializable{
+    
+    private TableView<GameState> table = new TableView<GameState>();
+    private final ObservableList<GameState> data =
+        FXCollections.observableArrayList(
+            new GameState("Jacob", new int[13]),
+            new GameState("Isabella", new int[13]),
+            new GameState("Ethan", new int[13]),
+            new GameState("Emma", new int[13]),
+            new GameState("Michael", new int[13])
+        );
+    
     
     GameState game = new GameState();
     Circle[] redTomb = new Circle[10];
@@ -109,10 +132,12 @@ public class PrimaryController {
             TextField txtfieldInfo = new TextField();
     @FXML
             Button buttonInfo = new Button();
+    @FXML
+            CheckBox btnDatabase = new CheckBox();
     
     //Load
     @FXML
-            ListView tableLoad = new ListView();
+            TableView tableLoad = new TableView();
 
 //</editor-fold>
  
@@ -138,6 +163,9 @@ public class PrimaryController {
     @FXML
     private void _saveGame() throws IOException {
         _gombKidob(btnSave);
+        btnDatabase.setIndeterminate(false);
+        btnDatabase.setSelected(true);
+        btnDatabase.setTextFill(Color.BLACK);
         
     }
     
@@ -210,6 +238,8 @@ public class PrimaryController {
         //Űj játék labelInfo:"Új játék"
         if ( txtfieldInfo.getText() != null && txtfieldInfo.getText().replaceAll("\\s", "") !="" ){
             game.player =  txtfieldInfo.getText();
+            /////////////////
+            data.add(game);
             
             paneInfo.setVisible(false);
             paneGame.setOpacity(1);
@@ -230,6 +260,8 @@ public class PrimaryController {
         paneGame.setOpacity(0.1);
         tableLoad.setOpacity(0.5);
         paneLoad.setVisible(true);
+        
+        //addDataToLoadTable();
     }
 
     private void _game() {
@@ -700,5 +732,33 @@ public class PrimaryController {
         }
         if ( looser == 2 )
             System.out.println("HI-SCORE mentése");
+    }    
+
+//    private void addDataToLoadTable() {
+//        
+//        TableColumn firstNameCol = new TableColumn("First Name");
+//        firstNameCol.setMinWidth(100);
+//        firstNameCol.setCellValueFactory(
+//                new PropertyValueFactory<GameState, String>("player"));
+// 
+//
+// 
+//        tableLoad.setItems(data);
+//        tableLoad.getColumns().add(firstNameCol);
+//    }
+    
+        @Override
+    public void initialize(URL location, ResourceBundle resources){
+        TableColumn firstNameCol = new TableColumn("Name");
+        firstNameCol.setMinWidth(100);
+        firstNameCol.setCellValueFactory(
+                new PropertyValueFactory<GameState, String>("ssplayer"));
+ 
+
+        System.out.println("Dátum: " + LocalDate.now());
+        System.out.println("Idő: " + LocalTime.now().format(DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM)));
+        
+        tableLoad.setItems(data);
+        tableLoad.getColumns().add(firstNameCol);
     }
 }
