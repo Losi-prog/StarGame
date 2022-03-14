@@ -28,23 +28,25 @@ import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
+import com.mycompany.stargame.PrimaryModel;
 
 public class PrimaryController implements Initializable{
     
-    private TableView<GameState> table = new TableView<GameState>();
-    private final ObservableList<GameState> data =
-        FXCollections.observableArrayList(
-            new GameState("Jacob", new int[13]),
-            new GameState("Isabella", new int[13]),
-            new GameState("Ethan", new int[13]),
-            new GameState("Emma", new int[13]),
-            new GameState("Michael", new int[13])
-        );
+    //private TableView<GameState> table = new TableView<GameState>();
+//    private final ObservableList<GameState> data =
+//        FXCollections.observableArrayList(
+//            new GameState("Jacob", new int[13]),
+//            new GameState("Isabella", new int[13]),
+//            new GameState("Ethan", new int[13]),
+//            new GameState("Emma", new int[13]),
+//            new GameState("Michael", new int[13])
+//        );
     
     
     GameState game = new GameState();
     Circle[] redTomb = new Circle[10];
     Circle[] blueTomb = new Circle[10];
+    PrimaryModel model = new PrimaryModel();
     
 //<editor-fold defaultstate="collapsed" desc="FXML Declarations">
     //Buttons
@@ -158,7 +160,7 @@ public class PrimaryController implements Initializable{
     }
     
     @FXML
-    private void _loadGame() throws IOException {
+    private void _loadGame() throws IOException, ClassNotFoundException {
         _gombKidob(btnLoad);
         _loadTable();
     }
@@ -166,6 +168,9 @@ public class PrimaryController implements Initializable{
     @FXML
     private void _saveGame() throws IOException {
         _gombKidob(btnSave);
+        
+        model.saveGame(game);
+        
         btnDatabase.setIndeterminate(false);
         btnDatabase.setSelected(true);
         btnDatabase.setTextFill(Color.BLACK);
@@ -242,7 +247,7 @@ public class PrimaryController implements Initializable{
         if ( txtfieldInfo.getText() != null && txtfieldInfo.getText().replaceAll("\\s", "") !="" ){
             game.player =  txtfieldInfo.getText();
             /////////////////
-            data.add(game);
+            //data.add(game);
             
             paneInfo.setVisible(false);
             paneGame.setOpacity(1);
@@ -261,19 +266,9 @@ public class PrimaryController implements Initializable{
         System.out.println(tableLoad.getSelectionModel().getSelectedIndex());
     }
     
-//        tableLoad.setRowFactory(tv -> {
-//            TableRow<ObservableList> row = new TableRow<>();
-//            row.setOnMouseClicked(event -> {
-//                if (event.getClickCount() == 2 && (!row.isEmpty())) {
-//                   System.out.println(tableLoad.getSelectionModel().getSelectedIndex()
-//                           +" <-tbl row, idx in items-> "
-//                           +data.indexOf(tableLoad.getSelectionModel().getSelectedItem()));
-//                }
-//            });
-//            return row;
-//        });
 
-    private void _loadTable() {
+
+    private void _loadTable() throws ClassNotFoundException {
         paneInfo.setVisible(false);
         paneSave.setVisible(false);
         paneHi.setVisible(false);
@@ -282,7 +277,7 @@ public class PrimaryController implements Initializable{
         tableLoad.setOpacity(0.5);
         paneLoad.setVisible(true);
         
-        //addDataToLoadTable();
+        model.addDataToLoadTable(tableLoad);
     }
 
     private void _game() {
@@ -753,6 +748,7 @@ public class PrimaryController implements Initializable{
         }
         if ( looser == 2 )
             System.out.println("HI-SCORE mentése");
+            
     }    
 
 //    private void addDataToLoadTable() {
@@ -770,26 +766,26 @@ public class PrimaryController implements Initializable{
     
         @Override
     public void initialize(URL location, ResourceBundle resources){
-        TableColumn firstNameCol = new TableColumn("Name");
-        firstNameCol.setMinWidth(200);
-        firstNameCol.setCellValueFactory(
-                new PropertyValueFactory<GameState, String>("ssplayer"));
-        
-        TableColumn secondDateCol = new TableColumn("Date");
-        secondDateCol.setMinWidth(100);
-        secondDateCol.setCellValueFactory(
-                new PropertyValueFactory<GameState, String>("date"));
-        
-        TableColumn thirdTimeCol = new TableColumn("Time");
-        thirdTimeCol.setMinWidth(100);
-        thirdTimeCol.setCellValueFactory(
-                new PropertyValueFactory<GameState, String>("time"));
+//        TableColumn firstNameCol = new TableColumn("Name");
+//        firstNameCol.setMinWidth(200);
+//        firstNameCol.setCellValueFactory(
+//                new PropertyValueFactory<GameState, String>("ssplayer"));
+//        
+//        TableColumn secondDateCol = new TableColumn("Date");
+//        secondDateCol.setMinWidth(100);
+//        secondDateCol.setCellValueFactory(
+//                new PropertyValueFactory<GameState, String>("date"));
+//        
+//        TableColumn thirdTimeCol = new TableColumn("Time");
+//        thirdTimeCol.setMinWidth(100);
+//        thirdTimeCol.setCellValueFactory(
+//                new PropertyValueFactory<GameState, String>("time"));
         
 
 //        System.out.println("Dátum: " + LocalDate.now());
 //        System.out.println("Idő: " + LocalTime.now().format(DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM)));
         
-        tableLoad.setItems(data);
-        tableLoad.getColumns().addAll(firstNameCol , secondDateCol, thirdTimeCol);
+//        tableLoad.setItems(data);
+//        tableLoad.getColumns().addAll(firstNameCol , secondDateCol, thirdTimeCol);
     }
 }

@@ -46,6 +46,8 @@ public class GameState {
             this.gameSpace[i] = tomb[i];
     }
     
+    
+    
     public String kiJon(){
         if (gameSpace[0]%2 == 1)
             return "Red";
