@@ -12,6 +12,14 @@ public class GameState {
     String player;
     SimpleStringProperty ssplayer;
     SimpleStringProperty date;
+
+    public String getDate() {
+        return date.get();
+    }
+
+    public String getTime() {
+        return time.get();
+    }
     SimpleStringProperty time;
 
     public String getSsplayer() {

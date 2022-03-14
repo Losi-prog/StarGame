@@ -130,7 +130,7 @@
                </font>
             </Label>
             <TableView fx:id="tableLoad" layoutY="62.0" prefHeight="338.0" prefWidth="478.0" />
-            <Button layoutX="356.0" layoutY="427.0" mnemonicParsing="false" text="Load Game" />
+            <Button fx:id="loadBtn" layoutX="356.0" layoutY="427.0" mnemonicParsing="false" onAction="#_loadBtn" text="Load Game" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="paneInfo" layoutX="237.0" layoutY="239.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="200.0" visible="false" AnchorPane.bottomAnchor="140.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="140.0" AnchorPane.topAnchor="140.0">

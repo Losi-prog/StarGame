@@ -17,6 +17,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableRow;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleButton;
@@ -138,6 +139,8 @@ public class PrimaryController implements Initializable{
     //Load
     @FXML
             TableView tableLoad = new TableView();
+    @FXML
+            Button loadBtn = new Button();
 
 //</editor-fold>
  
@@ -251,6 +254,24 @@ public class PrimaryController implements Initializable{
             txBigSG.setVisible(true);
         }
     }
+    
+    @FXML
+    private void _loadBtn(){
+        
+        System.out.println(tableLoad.getSelectionModel().getSelectedIndex());
+    }
+    
+//        tableLoad.setRowFactory(tv -> {
+//            TableRow<ObservableList> row = new TableRow<>();
+//            row.setOnMouseClicked(event -> {
+//                if (event.getClickCount() == 2 && (!row.isEmpty())) {
+//                   System.out.println(tableLoad.getSelectionModel().getSelectedIndex()
+//                           +" <-tbl row, idx in items-> "
+//                           +data.indexOf(tableLoad.getSelectionModel().getSelectedItem()));
+//                }
+//            });
+//            return row;
+//        });
 
     private void _loadTable() {
         paneInfo.setVisible(false);
@@ -750,15 +771,25 @@ public class PrimaryController implements Initializable{
         @Override
     public void initialize(URL location, ResourceBundle resources){
         TableColumn firstNameCol = new TableColumn("Name");
-        firstNameCol.setMinWidth(100);
+        firstNameCol.setMinWidth(200);
         firstNameCol.setCellValueFactory(
                 new PropertyValueFactory<GameState, String>("ssplayer"));
- 
+        
+        TableColumn secondDateCol = new TableColumn("Date");
+        secondDateCol.setMinWidth(100);
+        secondDateCol.setCellValueFactory(
+                new PropertyValueFactory<GameState, String>("date"));
+        
+        TableColumn thirdTimeCol = new TableColumn("Time");
+        thirdTimeCol.setMinWidth(100);
+        thirdTimeCol.setCellValueFactory(
+                new PropertyValueFactory<GameState, String>("time"));
+        
 
-        System.out.println("Dátum: " + LocalDate.now());
-        System.out.println("Idő: " + LocalTime.now().format(DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM)));
+//        System.out.println("Dátum: " + LocalDate.now());
+//        System.out.println("Idő: " + LocalTime.now().format(DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM)));
         
         tableLoad.setItems(data);
-        tableLoad.getColumns().add(firstNameCol);
+        tableLoad.getColumns().addAll(firstNameCol , secondDateCol, thirdTimeCol);
     }
 }
