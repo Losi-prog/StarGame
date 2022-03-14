@@ -263,7 +263,22 @@ public class PrimaryController implements Initializable{
     @FXML
     private void _loadBtn(){
         
-        System.out.println(tableLoad.getSelectionModel().getSelectedIndex());
+        //System.out.println(tableLoad.getSelectionModel().getSelectedIndex() + "  ID: " + tableLoad.getSelectionModel().getSelectedItem());
+        
+        game = (GameState)tableLoad.getSelectionModel().getSelectedItem();
+        
+        paneInfo.setVisible(false);
+        paneSave.setVisible(false);
+        paneHi.setVisible(false);
+        
+        paneGame.setOpacity(1);
+        tableLoad.setOpacity(0.5);
+        paneLoad.setVisible(false);
+        
+        fillUp();
+        drawing();
+        
+        
     }
     
 
@@ -278,6 +293,9 @@ public class PrimaryController implements Initializable{
         paneLoad.setVisible(true);
         
         model.addDataToLoadTable(tableLoad);
+        
+        
+        
     }
 
     private void _game() {

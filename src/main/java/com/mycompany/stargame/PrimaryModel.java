@@ -7,6 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.TableColumn;
@@ -111,11 +112,11 @@ public class PrimaryModel {
     public void addDataToLoadTable(TableView tableLoad) throws ClassNotFoundException{
         final ObservableList<GameState> data =
         FXCollections.observableArrayList(
-                new GameState("Jacob", new int[13]),
-            new GameState("Isabella", new int[13]),
-            new GameState("Ethan", new int[13]),
-            new GameState("Emma", new int[13]),
-            new GameState("Michael", new int[13])
+//                new GameState("Jacob", new int[13]),
+//            new GameState("Isabella", new int[13]),
+//            new GameState("Ethan", new int[13]),
+//            new GameState("Emma", new int[13]),
+//            new GameState("Michael", new int[13])
         );
         
         
@@ -141,20 +142,32 @@ public class PrimaryModel {
         try
         {
             Class.forName("com.mysql.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/save", "root", "");
+            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/stargamedb", "root", "");
             st = conn.createStatement();
             rs = st.executeQuery("SELECT * FROM stargametable WHERE 1");
 //            javax.swing.table.DefaultTableModel model = (javax.swing.table.DefaultTableModel) TablePane.getModel();
             while(rs.next())
             {
                 
+                int _ID = rs.getInt(1);
+                String player = rs.getString("Name");
+                int[] tomb = new int[13];
+                for ( int i = 1 ; i < 13 ; i++ )
+                    tomb[i] = rs.getInt(i+2);
+                tomb[0] = rs.getInt(17);
+                
+                GameState gama = new GameState(player , tomb);
+                gama._ID = _ID;
+                gama.date = new SimpleStringProperty(rs.getString("Date"));
+                gama.time = new SimpleStringProperty(rs.getString("Time"));
+                
+                //System.out.println("Id: " + _ID);
                 
                 
                 
                 
                 
-                
-                //data.add(new GameState(rs.getString("Name")));
+                data.add(gama);
             }
 //            TablePane.setPreferredSize(null);
 //            TablePane.setModel(model);
@@ -169,11 +182,6 @@ public class PrimaryModel {
               System.out.println("Nem sikerült lezárni az adb-t");
             } 
         }
-        
-        
-        
-        
-        
         
         
         tableLoad.setItems(data);
