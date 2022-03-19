@@ -136,7 +136,7 @@ public class PrimaryController implements Initializable{
     @FXML
             Button buttonInfo = new Button();
     @FXML
-            CheckBox btnDatabase = new CheckBox();
+            CheckBox chkboxAIplay = new CheckBox();
     
     //Load
     @FXML
@@ -171,9 +171,9 @@ public class PrimaryController implements Initializable{
         
         model.saveGame(game);
         
-        btnDatabase.setIndeterminate(false);
-        btnDatabase.setSelected(true);
-        btnDatabase.setTextFill(Color.BLACK);
+//        btnDatabase.setIndeterminate(false);
+//        btnDatabase.setSelected(true);
+//        btnDatabase.setTextFill(Color.BLACK);
         
     }
     
@@ -299,6 +299,11 @@ public class PrimaryController implements Initializable{
     }
 
     private void _game() {
+        
+        if (chkboxAIplay.isSelected()){
+            System.out.println("AI game kezdése");
+        }
+        
         game.gameSpace[0] = 1;
         txBigBy.setText("Következik: " + game.kiJon());
             

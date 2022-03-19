@@ -24,7 +24,7 @@
                   <ToggleButton fx:id="btnSave" layoutY="50.0" mnemonicParsing="false" onAction="#_saveGame" prefHeight="25.0" prefWidth="156.0" text="Save Game" />
                   <ToggleButton fx:id="btnHi" layoutY="75.0" mnemonicParsing="false" onAction="#_hiScore" prefHeight="25.0" prefWidth="156.0" text="Hi-Score" />
                   <ToggleButton fx:id="btnExit" layoutY="100.0" mnemonicParsing="false" onAction="#_exit" prefHeight="25.0" prefWidth="156.0" text="Exit" />
-                  <CheckBox fx:id="btnDatabase" indeterminate="true" layoutX="9.0" layoutY="458.0" mnemonicParsing="false" mouseTransparent="true" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="139.0" text="Adatbázis kapcsolat" textFill="RED" />
+                  <CheckBox fx:id="chkboxAIplay" layoutX="9.0" layoutY="458.0" mnemonicParsing="false" nodeOrientation="RIGHT_TO_LEFT" prefHeight="17.0" prefWidth="139.0" text="BLUE player AI     " textFill="#1b00ff" />
                </children>
             </AnchorPane>
           <AnchorPane fx:id="paneGame" minHeight="0.0" minWidth="0.0" prefHeight="480.0" prefWidth="480.0">

@@ -7,7 +7,7 @@ import java.time.format.FormatStyle;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class GameState {
+public class GameState{
     
     String player;
     SimpleStringProperty ssplayer;
@@ -147,6 +147,5 @@ public class GameState {
         //game.gsameSpace[9] eseten
         return true;
     }
-    
-    
+
 }
