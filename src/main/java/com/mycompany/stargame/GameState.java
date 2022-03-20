@@ -7,7 +7,7 @@ import java.time.format.FormatStyle;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-public class GameState{
+public class GameState extends Position{
     
     String player;
     SimpleStringProperty ssplayer;
@@ -124,20 +124,20 @@ public class GameState{
         return 0;
     }
 
-    private boolean nearEmpty(int actual) {
-        if ( actual < 9 ){
+    boolean nearEmpty(int i) {
+        if ( i < 9 ){
             int bigger;
             int smaller;
             
-            if ( actual == 8 )
+            if ( i == 8 )
                 bigger = 1;
             else
-                bigger = actual + 1;
+                bigger = i + 1;
             
-            if ( actual == 1 )
+            if ( i == 1 )
                 smaller = 8;
             else
-                smaller = actual -1;
+                smaller = i -1;
             
             if ( this.gameSpace[bigger] == 0 || this.gameSpace[smaller] == 0 || this.gameSpace[9] ==0 )
                 return true;

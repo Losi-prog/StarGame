@@ -29,8 +29,9 @@ import javafx.scene.text.Text;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 import com.mycompany.stargame.PrimaryModel;
+import java.util.LinkedList;
 
-public class PrimaryController implements Initializable{
+public class PrimaryController extends GameSearch implements Initializable{
     
     //private TableView<GameState> table = new TableView<GameState>();
 //    private final ObservableList<GameState> data =
@@ -299,14 +300,22 @@ public class PrimaryController implements Initializable{
     }
 
     private void _game() {
-        
+        //Ha az AI játszik
         if (chkboxAIplay.isSelected()){
             System.out.println("AI game kezdése");
-        }
-        
-        game.gameSpace[0] = 1;
-        txBigBy.setText("Következik: " + game.kiJon());
+            for (int i = 1 ; i < 5 ; i++ )
+                game.gameSpace[i] = 1;
+            for (int i = 5 ; i < 9 ; i++ )
+                game.gameSpace[i] = 2;
+            game.gameSpace[0] = 8;
+            nextRound();
+            playGame(game, HUMAN);
             
+        }else{
+        
+            game.gameSpace[0] = 1;
+            txBigBy.setText("Következik: " + game.kiJon());
+        }
         //lépések ellenőrzése
         //.....
         
@@ -460,12 +469,13 @@ public class PrimaryController implements Initializable{
     private void _btnGrey9(){
         if (game.gameSpace[0] < 9){
             //nem lehet ide tenni
-        }
+        }else{
         
-        game.gameSpace[12] = 9;
-        if ( game.isNeighbour() ){
-            makeStep();
-            nextRound();
+            game.gameSpace[12] = 9;
+            if ( game.isNeighbour() ){
+                makeStep();
+                nextRound();
+            }
         }
     }
 //</editor-fold>
@@ -810,5 +820,93 @@ public class PrimaryController implements Initializable{
         
 //        tableLoad.setItems(data);
 //        tableLoad.getColumns().addAll(firstNameCol , secondDateCol, thirdTimeCol);
+    }
+
+    @Override
+    public boolean drawnPosition(Position p) {
+        return false;
+    }
+
+    @Override
+    public boolean wonPosition(Position p, boolean player) {
+        GameState pos = (GameState) p;
+        
+        if ( pos.isWin() != 0 )
+            return true;
+            
+        return false;
+    }
+
+    @Override
+    public float positionEvaluation(Position p, boolean player) {
+        if (game.isWin() == 1)
+            return GameSearch.INFINITY;
+        else
+            return -GameSearch.INFINITY;
+    }
+
+    @Override
+    public void printPosition(Position p) {
+        drawing();
+    }
+
+    @Override
+    public Position[] possibleMoves(Position p, boolean player) {
+        LinkedList<Position> children = new LinkedList<>();
+        GameState pos = (GameState) p;
+        int actualColor = player? 1 : 2 ;
+        
+        
+        for ( int i = 1 ; i < 10 ; i++ ) {
+            if ( pos.gameSpace[i] == actualColor && pos.nearEmpty(i) && pos.canStep(i) ){
+                for ( int j = 1; j < 10 ; j++ ){
+                    if ( pos.gameSpace[j] == 0 ){
+                        
+                        
+                        GameState child = new GameState();
+                        child.player = pos.player;
+//                        child.date = pos.date;
+//                        child.time = pos.time;
+                        for ( int k = 0 ; k < pos.gameSpace.length ; k++ )
+                            child.gameSpace[k] = pos.gameSpace[k];
+                        //mozgatni az elemet
+
+                        child.gameSpace[j] = actualColor;
+                        child.gameSpace[i] = 0;
+                        
+                        children.add(child);
+            
+                    }
+                }
+            }
+        }
+        
+        
+        Position[] answer = new Position[children.size()];
+        for (int i=0; i<answer.length; i++) answer[i] = children.get(i);
+        return answer;
+    }
+
+    @Override
+    public Position makeMove(Position p, boolean player, Move move) {
+        drawing();
+        return game;
+    }
+
+    @Override
+    public boolean reachedMaxDepth(Position p, int depth) {
+        GameState pos = (GameState) p;
+        
+        if ( pos.isWin() != 0 )
+            return true;
+            
+        return false;
+    }
+
+    @Override
+    public Move createMove(Position p, boolean player) {
+        GameState pos = (GameState) p;
+        
+        return new StarMove(pos.gameSpace[11] , pos.gameSpace[12]);
     }
 }
