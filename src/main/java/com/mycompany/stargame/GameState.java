@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.Arrays;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
@@ -37,6 +38,7 @@ public class GameState extends Position{
     
     public GameState(String player , int[] tomb){
         
+        System.out.println("Player: " + player + "tomb: " + Arrays.toString(tomb) + "isWin: " + isWin());
         this.date = new SimpleStringProperty("" + LocalDate.now());
         this.time = new SimpleStringProperty(LocalTime.now().format(DateTimeFormatter.ofLocalizedTime(FormatStyle.MEDIUM)));
         

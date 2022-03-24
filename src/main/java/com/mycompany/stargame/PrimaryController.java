@@ -861,19 +861,29 @@ public class PrimaryController extends GameSearch implements Initializable{
             if ( pos.gameSpace[i] == actualColor && pos.nearEmpty(i) && pos.canStep(i) ){
                 for ( int j = 1; j < 10 ; j++ ){
                     if ( pos.gameSpace[j] == 0 ){
-                        
-                        
-                        GameState child = new GameState();
-                        child.player = pos.player;
-//                        child.date = pos.date;
-//                        child.time = pos.time;
+                        int[] gs2 = new int[13];
                         for ( int k = 0 ; k < pos.gameSpace.length ; k++ )
-                            child.gameSpace[k] = pos.gameSpace[k];
-                        //mozgatni az elemet
-
-                        child.gameSpace[j] = actualColor;
-                        child.gameSpace[i] = 0;
+                            gs2[k] = pos.gameSpace[k];
+                        gs2[j] = actualColor;
+                        gs2[i] = 0;
+                        gs2[0]++;
                         
+                        GameState child = new GameState("Jani" , gs2);
+                        
+//                        GameState child = new GameState(pos.player , gs2);
+//                        child.player = pos.player;
+////                        child.date = pos.date;
+////                        child.time = pos.time;
+//                        for ( int k = 0 ; k < pos.gameSpace.length ; k++ )
+//                            child.gameSpace[k] = pos.gameSpace[k];
+//                        //mozgatni az elemet
+
+                        
+                        
+
+//                        child.gameSpace[j] = actualColor;
+//                        child.gameSpace[i] = 0;
+//                        child.gameSpace[0]++;
                         children.add(child);
             
                     }
@@ -897,8 +907,11 @@ public class PrimaryController extends GameSearch implements Initializable{
     public boolean reachedMaxDepth(Position p, int depth) {
         GameState pos = (GameState) p;
         
-        if ( pos.isWin() != 0 )
+        if ( pos.gameSpace[0] > 30 )
             return true;
+        
+//        if ( pos.isWin() != 0 )
+//            return true;
             
         return false;
     }
